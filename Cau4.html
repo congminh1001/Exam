@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mảng hai chiều </title>
+</head>
+<body>
+<script>
+    let n = Number(prompt("Nhập vào số hàng của ma trận:"));
+    let m = Number(prompt("Nhập vào số cột của ma trận:"));
+    let i,j;
+    let arr = [[]];
+    for ( i=0;i<n;i++)
+    {
+        arr[i]=[];
+        for (j=0;j<m;j++)
+        {
+            arr[i][j]= Number(prompt("Nhập vào phần tử của mảng"+ "A["+i +"]"+"["+j+"]"));
+        }
+    }
+
+    for ( i=0;i<n;i++)
+    {
+        for (j=0;j<m;j++)
+        {
+            document.write( arr[i][j] + " ");
+        }
+        document.write('</br>');
+    }
+function sumDCOne(arr)
+{
+    let SumCheo1=0;
+    for ( i=0;i<n;i++)
+    {
+        for (j=0;j<m;j++)
+        {
+            if(i==j)
+            {
+                 SumCheo1 +=arr[i][j];
+            }
+        }
+    }
+    return SumCheo1;
+}
+    document.write('<br>');
+    document.write(sumDCOne(arr));
+    function sumDCTwo(arr)
+    {
+        let SumCheo2=0;
+        for ( i=0;i<n;i++)
+        {
+            for (j=0;j<m;j++)
+            {
+                if((i+j)==(n-1))
+                {
+                    SumCheo2 +=arr[i][j];
+                }
+            }
+        }
+        return SumCheo2;
+    }
+    document.write('<br>');
+    document.write(sumDCTwo(arr));
+    document.write('<br>');
+    document.write("Tong hai duong cheo: "+(sumDCOne(arr)+sumDCTwo(arr)));
+
+
+
+        let min=arr[i][j];
+        for ( i=0;i<n;i++) {
+            for (j = 0; j < m; j++) {
+                if (min > arr[i][j]) {
+                    min = arr[i][j];
+                }
+            }
+        }
+    document.write(min);
+
+</script>
+</body>
+</html>
