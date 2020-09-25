@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cau 5</title>
+</head>
+<body>
+
+<script>
+    let arr=[-1,150,190,170,-1,-1,160,180];
+    function SapXepArr(arr)
+    {
+        let newArr=[];
+        for(let i=0;i<arr.length;i++)
+        {
+            if(arr[i]!=-1)
+            {
+                newArr.push(arr[i]);
+            }
+        }
+        let temp;
+
+        for (let i=0;i<newArr.length-1;i++)
+        {
+            index = i;
+            min= newArr[i];
+            for(let j=i+1;j<newArr.length;j++)
+            {
+                if(min > arr[j])
+                {
+                    min = arr[j];
+                    index = j;
+                }
+            }
+            if(index!=i)
+            {
+                temp=arr[i];
+                arr[i]=arr[index];
+                arr[index]=temp;
+            }
+
+        }
+
+        let count=0;
+        for(let i=0;i<arr.length;i++)
+        {
+            if(arr[i]==-1)
+            {
+                continue;
+            }
+            arr[i]= newArr[count];
+            count++;
+        }
+
+        return arr;
+    }
+    document.write(SapXepArr(arr));
+</script>
+</body>
+</html>
